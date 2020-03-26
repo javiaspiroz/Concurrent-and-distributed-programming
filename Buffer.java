@@ -20,6 +20,4 @@ public class Buffer {
 	public static Semaphore getsNoLleno() {
 		return sNoLleno;
 	}
-	
-
 }

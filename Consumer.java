@@ -20,7 +20,6 @@ public class Consumer extends Thread{
 		//Consumir el elemento
 		int consumedNumber = Buffer.getStore().poll();
 		System.out.println("Consumidor: Número " + consumedNumber + " consumido.");
-		
 	}
 	
 	@Override
@@ -29,7 +28,6 @@ public class Consumer extends Thread{
 		while(true) {
 			
 			if(Buffer.getStore().size() == 0) {
-				
 				System.out.println("Consumidor: El buffer está vacio, esperando a que el productor trabaje.");
 			}
 			
@@ -40,7 +38,6 @@ public class Consumer extends Thread{
 			}
 			
 			consume();
-			
 			Buffer.getsNoLleno().release();
 		}
 	}

@@ -19,7 +19,6 @@ public class Producer extends Thread{
 		}
 		
 		System.out.println("Productor: Número " + numP + " producido.");
-		
 		//Añadir al buffer
 		Buffer.getStore().add(numP);
 	}
@@ -27,8 +26,7 @@ public class Producer extends Thread{
 	@Override
 	public void run () {
 		
-		while(true) {
-			
+		while(true) {			
 			if(Buffer.getStore().size() == Buffer.bSize) {
 				System.out.println("Productor: El buffer está lleno, esperando a que el consumidor trabaje.");
 			}
@@ -38,9 +36,8 @@ public class Producer extends Thread{
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}
-			
+
 			produce();
-			
 			Buffer.getsNoVacio().release();
 		}
 	}
